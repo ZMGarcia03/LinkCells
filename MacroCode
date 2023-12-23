@@ -1,0 +1,22 @@
+Sub DeleteRowOnOtherTabExample()
+    Dim wsActive As Worksheet
+    Dim wsTarget As Worksheet
+    Dim activeRow As Range
+    Dim targetRow As Range
+    Dim activeRowNum As Long
+    
+    ' Define the active sheet and target sheet
+    Set wsActive = ActiveSheet
+    Set wsTarget = ThisWorkbook.Worksheets("TargetSheet") ' Change to the name of the target sheet
+    
+    ' Get the active row number
+    activeRowNum = ActiveCell.Row
+    
+    ' Get the corresponding row on the target sheet
+    Set targetRow = wsTarget.Rows(activeRowNum)
+    
+    ' Delete the row on the target sheet
+    Application.DisplayAlerts = False
+    targetRow.Delete
+    Application.DisplayAlerts = True
+End Sub
